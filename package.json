@@ -1,0 +1,23 @@
+{
+	"name": "smart-brain",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"server-install": "npm install --prefix server",
+		"client-install": "npm install --prefix client",
+		"install": "npm run client-install  && npm run server-install",
+		"client": "npm start --prefix client",
+		"server": "npm run watch --prefix server",
+		"watch": "concurrently \"npm:server\" \"npm:client\"",
+		"deploy": "npm run build --prefix client && npm start --prefix server",
+		"deploy-cluster": "npm run build --prefix client && npm run cluster --prefix server"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"concurrently": "^7.0.0"
+	}
+}
